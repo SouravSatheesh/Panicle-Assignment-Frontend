@@ -1,0 +1,74 @@
+* {
+  text-decoration: none;
+  color: black;
+}
+
+.container .post {
+  background: rgb(206, 222, 253);
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 15px 25px;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+  height: 250px;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post:hover {
+  cursor: pointer;
+}
+
+.post:active {
+  transform: scale(0.95);
+}
+
+/* 2 post (600px) */
+@media (max-width: 991px) {
+  .container .post {
+    height: 200px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .container .post {
+    float: left;
+    width: calc(50% - 20px);
+  }
+}
+
+/* 3 post (768px) */
+
+@media only screen and (min-width: 992px) {
+  .container .post {
+    width: calc(33.333% - 20px);
+  }
+}
+
+/* 4 post (992px) */
+
+/* @media only screen and (min-width: 992px) {
+  .container .post {
+    margin: 20px;
+    width: calc(25% - 40px);
+  }
+} */
+
+.post_title {
+  font-size: 22px;
+  padding-bottom: 15px;
+}
+
+.post_userid {
+  font-size: 12px;
+  opacity: 0.5;
+  float: right;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.post_body {
+  font-size: 16px;
+  margin-bottom: 10px;
+}

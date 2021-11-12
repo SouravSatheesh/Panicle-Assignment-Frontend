@@ -1,0 +1,22 @@
+.comment {
+	padding: 10px 15px;
+	border: 1px solid;
+	border-radius: 10px;
+	margin-bottom: 8px;
+	float: left;
+	width: 100%;
+}
+
+.comment_name {
+	font-size: 1.1em;
+	font-weight: 600;
+}
+
+.comment_email {
+	font-size: 0.9em;
+	opacity: 0.5;
+}
+
+.comment_body {
+	padding: 5px 0 5px 15px;
+}
