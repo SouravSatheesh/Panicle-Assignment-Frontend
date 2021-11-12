@@ -22,22 +22,22 @@ function PostComment({ post, comments }) {
 
   const handleSubmit = async (event) => {
     const values = event.target;
+    event.preventDefault();
     if (!values.name.value || !values.email.value || !values.body.value) {
-      event.preventDefault();
       alert("Field missing!! Post not added");
     } else {
-      const newPost = {
+      const newComment = {
         postId: post.id,
         id: comments.length + 1,
         name: values.name.value,
         email: values.email.value,
         body: values.body.value,
       };
-      const response = await axios.post(
-        `http://localhost:4000/api/posts/${post.id}/comments`,
-        newPost
-      );
-      console.log(response);
+      const response = await axios({
+        method: "post",
+        url: `posts/${post.id}/comments`,
+        data: newComment,
+      }).then((res) => window.location.reload());
     }
   };
 
@@ -95,7 +95,7 @@ function PostComment({ post, comments }) {
         </Dialog>
 
         {comments?.map((comment) => (
-          <Comment comment={comment} key={comment.id}/>
+          <Comment comment={comment} key={comment.id} />
         ))}
       </div>
     </div>

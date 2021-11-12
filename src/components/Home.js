@@ -22,8 +22,8 @@ function Home({ posts }) {
 
   const handleSubmit = async (event) => {
     const values = event.target;
+    event.preventDefault();
     if (!values.userId.value || !values.title.value || !values.body.value) {
-      event.preventDefault();
       alert("Field missing!! Post not added");
     } else {
       const newPost = {
@@ -32,16 +32,23 @@ function Home({ posts }) {
         title: event.target.title.value,
         body: event.target.body.value,
       };
-      const response = await axios.post(
-        "https://panicle-backend.herokuapp.com/api/posts",
-        newPost
-      );
+      const response = await axios({
+          method: "post",
+          url: `posts`,
+          data: newPost,
+        })
+        .then((res) => window.location.reload());
+      setOpen(false);
     }
   };
 
   return (
     <div className="home">
-      <Button className="addButton"variant="outlined" onClick={handleClickOpen}>
+      <Button
+        className="addButton"
+        variant="outlined"
+        onClick={handleClickOpen}
+      >
         Add new post
       </Button>
       <Dialog open={open} onClose={handleClose}>
