@@ -40,7 +40,7 @@ function PostComment({ post, comments }) {
       }).then((res) => window.location.reload());
     }
   };
-
+//random comment
   return (
     <div className="container">
       <div className="comments column">
